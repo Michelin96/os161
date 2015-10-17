@@ -1,0 +1,53 @@
+Script started on Sat 17 Oct 2015 10:48:59 AM PDT
+Welcome to the Holodeck.
+
+EARL GREY PROFILES
+
+NAME:		Jean-Luc Perriwinkle Picard
+OCCUPATION:	Starship Big Cheese
+AGE:		94
+BIRTHPLACE:	Paris, Terra Sector
+EYES:		Grey
+SKIN:		Tanned
+HAIR:		Not much
+LAST MAGAZINE READ:
+		Lobes 'n' Probes, the Ferengi-Betazoid Sex Quarterly
+TEA:		Earl Grey.  Hot.
+
+EARL GREY NEVER VARIES.
+
+[01;36mwalmic06[0;37m@[01;36mholodeck2[00m:[01;35mroot[00m$ sos-gdb kernel
+GNU gdb (GDB) 7.8
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "--host=x86_64-unknown-linux-gnu --target=mips-harvard-os161".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from kernel...done.
+(gdb) dir ../os161/kern/compile/ASST0
+Warning: /home/walmic06/os161/root/../os161/kern/compile/ASST0: No such file or directory.
+Source directories searched: /home/walmic06/os161/root/../os161/kern/compile/ASST0:$cdir:$cwd
+(gdb) target remi[Kote unix:.sockets/gdb
+Remote debugging using unix:.sockets/gdb
+__start () at ../../arch/sys161/startup/start.S:54
+54	../../arch/sys161/startup/start.S: No such file or directory.
+(gdb) break menuy[K
+Breakpoint 1 at 0x800132a8: file ../../startup/menu.c, line 704.
+(gdb) where
+#0  __start () at ../../arch/sys161/startup/start.S:54
+(gdb) detachg[K
+Detaching from program: /home/walmic06/os161/root/kernel, Remote target
+Ending remote debugging.
+(gdb) qyut[K[K[Kuit
+[01;36mwalmic06[0;37m@[01;36mholodeck2[00m:[01;35mroot[00m$ exit
+exit
+
+Script done on Sat 17 Oct 2015 11:41:40 AM PDT
