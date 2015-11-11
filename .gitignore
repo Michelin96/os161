@@ -1,2 +1,6 @@
 *.o
-bin/
+~/bin/
+cscope.out
+~/*.tmp
+~/lib/
+*.tmp[0-9]
