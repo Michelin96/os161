@@ -51,12 +51,12 @@ int catmouse(int, char **);
 int arraytest(int, char **);
 int bitmaptest(int, char **);
 int queuetest(int, char **);
-int greettest(int nargs, char *args[]);
 
 /* thread tests */
 int threadtest(int, char **);
 int threadtest2(int, char **);
 int threadtest3(int, char **);
+int threadfun(int, char **);
 int semtest(int, char **);
 int locktest(int, char **);
 int cvtest(int, char **);

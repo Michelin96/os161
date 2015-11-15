@@ -1,4 +1,4 @@
-cscope 15 $HOME/os161               0000680649
+cscope 15 $HOME/os161               0000681914
 	@build/install/hostinclude/hostcompat.h
 
 31 
@@ -17925,7 +17925,7 @@ _OPT_SYNCHPROBS_H_
 
 2 c⁄° 
 	gbuûdvîsi⁄
- = 4;
+ = 6;
 
 3 c⁄° 
 	gbuûdc⁄fig
@@ -44735,24 +44735,20 @@ bôm≠ã°
 queuëe°
 (, **);
 
-54 
-gªëã°
-(
-«rgs
-, *
-¨gs
-[]);
-
-57 
+56 
 thªadã°
 (, **);
 
-58 
+57 
 thªadã°2
 (, **);
 
-59 
+58 
 thªadã°3
+(, **);
+
+59 
+thªadfun
 (, **);
 
 60 
@@ -52935,44 +52931,44 @@ UW
 cmd_khóp°©s
  },
 
-565 { "gt", 
-gªëã°
- },
-
-566 { "©", 
+565 { "©", 
 ¨øyã°
  },
 
-567 { "bt", 
+566 { "bt", 
 bôm≠ã°
  },
 
-568 { "km1", 
+567 { "km1", 
 mÆlo˘e°
  },
 
-569 { "km2", 
+568 { "km2", 
 mÆloc°ªss
  },
 
-570 #i‡
+569 #i‡
 OPT_NET
 
 
-571 { "√t", 
+570 { "√t", 
 √âe°
  },
 
-573 { "â1", 
+572 { "â1", 
 thªadã°
  },
 
-574 { "â2", 
+573 { "â2", 
 thªadã°2
  },
 
-575 { "â3", 
+574 { "â3", 
 thªadã°3
+ },
+
+575 { "â4", 
+thªadfun
  },
 
 576 { "sy1", 
@@ -59830,11 +59826,11 @@ rv
 	@kern/test/greettest.c
 
 6 
-	~<lib.h
+	~<ty≥s.h
 >
 
 7 
-	~<ty≥s.h
+	~<lib.h
 >
 
 8 
@@ -59859,7 +59855,7 @@ rv
 
 15 
 	`k¥ötf
-("You said: \n", 
+("You said: %s\n", 
 ¨gs
 [1]);
 
@@ -61240,6 +61236,282 @@ UW
 ("CVÅest done\n");
 
 349 
+	}
+}
+
+	@kern/test/threadfun.c
+
+4 
+	~<ty≥s.h
+>
+
+5 
+	~<lib.h
+>
+
+6 
+	~<thªad.h
+>
+
+7 
+	~<synch.h
+>
+
+8 
+	~<ã°.h
+>
+
+10 
+	#NTHREADS
+ 8
+
+	)
+
+12 
+£m≠h‹e
+ *
+	gt£m
+ = 
+NULL
+;
+
+16 
+	$öô_£m
+()
+
+18 i‡(
+t£m
+==
+NULL
+) {
+
+19 
+t£m
+ = 
+	`£m_¸óã
+("tsem", 0);
+
+20 i‡(
+t£m
+ =
+NULL
+) {
+
+21 
+	`∑nic
+("threadtest: sem_create failed\n");
+
+24 
+	}
+}
+
+28 
+	$loudthªad
+(*
+junk
+, 
+num
+)
+
+30 
+ch
+ = '0' + 
+num
+;
+
+31 
+i
+;
+
+33 ()
+junk
+;
+
+35 
+i
+=0; i<120; i++) {
+
+36 
+	`putch
+(
+ch
+);
+
+38 
+	`V
+(
+t£m
+);
+
+39 
+	}
+}
+
+53 
+	$quõâhªad
+(*
+junk
+, 
+num
+)
+
+55 
+ch
+ = '0' + 
+num
+;
+
+56 vﬁ©ûê
+i
+;
+
+58 ()
+junk
+;
+
+60 
+	`putch
+(
+ch
+);
+
+61 
+i
+=0; i<200000; i++);
+
+62 
+	`putch
+(
+ch
+);
+
+64 
+	`V
+(
+t£m
+);
+
+65 
+	}
+}
+
+69 
+	$ru¡hªads
+(
+dﬁoud
+)
+
+71 
+«me
+[16];
+
+72 
+i
+, 
+ªsu…
+;
+
+74 
+i
+=0; i<
+NTHREADS
+; i++) {
+
+75 
+	`¢¥ötf
+(
+«me
+, “ame), "thªadã°%d", 
+i
+);
+
+76 
+ªsu…
+ = 
+	`thªad_f‹k
+(
+«me
+, 
+NULL
+,
+
+77 
+dﬁoud
+ ? 
+loudthªad
+ : 
+quõâhªad
+,
+
+78 
+NULL
+, 
+i
+);
+
+79 i‡(
+ªsu…
+) {
+
+80 
+	`∑nic
+("threadtest:Åhread_fork failed %s)\n",
+
+81 
+	`°ªº‹
+(
+ªsu…
+));
+
+85 
+i
+=0; i<
+NTHREADS
+; i++) {
+
+86 
+	`P
+(
+t£m
+);
+
+88 
+	}
+}
+
+92 
+	$thªadfun
+(
+«rgs
+, **
+¨gs
+)
+
+94 ()
+«rgs
+;
+
+95 ()
+¨gs
+;
+
+97 
+	`öô_£m
+();
+
+98 
+	`k¥ötf
+("StartingÅhreadÅest...\n");
+
+99 
+	`ru¡hªads
+(1);
+
+100 
+	`k¥ötf
+("\nThreadÅest done.\n");
+
+103 
 	}
 }
 
@@ -135637,8 +135909,8 @@ i
 1
 .
 0
-501
-14074
+502
+14096
 build/install/hostinclude/hostcompat.h
 build/install/include/assert.h
 build/install/include/err.h
@@ -135888,6 +136160,7 @@ kern/test/greettest.c
 kern/test/malloctest.c
 kern/test/nettest.c
 kern/test/synchtest.c
+kern/test/threadfun.c
 kern/test/threadtest.c
 kern/test/tt3.c
 kern/test/uw-tests.c
