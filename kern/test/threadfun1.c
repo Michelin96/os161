@@ -10,7 +10,7 @@
 #define NTHREADS 10
 
 static struct semaphore *tsem = NULL;
- 
+
 static
 void
 init_sem(void)
@@ -27,19 +27,26 @@ static
 void
 mythreads(void *junk, unsigned long num)
 {
-        char *str = (char*)"help";
+        int ch = '0' + num;
         int i;
 
-	(void)num;
         (void)junk;
 
-        for (i=0; i<50; i++) {
-                kprintf(str);
+        for (i=0; i<120; i++) {
+                putch(ch);
         }
         V(tsem);
 }
 
 /*
+ * The idea with this is that you should see
+ *
+ *   0123456789 <pause> 0123456789
+ *
+ * (possibly with the numbers in different orders)
+ *
+ * The delay loop is supposed to be long enough that it should be clear
+ * if either timeslicing or the scheduler is not working right.
  */
  
 static

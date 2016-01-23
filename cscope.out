@@ -1,4 +1,4 @@
-cscope 15 $HOME/os161               0000700983
+cscope 15 $HOME/os161               0000693967
 	@build/install/hostinclude/hostcompat.h
 
 31 
@@ -19939,7 +19939,7 @@ _OPT_SYNCHPROBS_H_
 
 2 c⁄° 
 	gbuûdvîsi⁄
- = 1;
+ = 3;
 
 3 c⁄° 
 	gbuûdc⁄fig
@@ -46469,7 +46469,13 @@ V
 	mlk_«me
 ;
 
-81 
+79 
+wch™
+ *
+	mlk_wch™
+;
+
+82 
 lock
  *
 lock_¸óã
@@ -46477,19 +46483,19 @@ lock_¸óã
 «me
 );
 
-82 
+83 
 lock_acquúe
 (
 lock
  *);
 
-95 
+96 
 lock_ªÀa£
 (
 lock
  *);
 
-96 
+97 
 boﬁ
  
 lock_do_i_hﬁd
@@ -46497,21 +46503,21 @@ lock_do_i_hﬁd
 lock
  *);
 
-97 
+98 
 lock_de°roy
 (
 lock
  *);
 
-114 
+115 
 	scv
  {
 
-115 *
+116 *
 	mcv_«me
 ;
 
-120 
+121 
 cv
  *
 cv_¸óã
@@ -46519,13 +46525,13 @@ cv_¸óã
 «me
 );
 
-121 
+122 
 cv_de°roy
 (
 cv
  *);
 
-136 
+137 
 cv_waô
 (
 cv
@@ -46533,7 +46539,7 @@ cv
 lock
  *lock);
 
-137 
+138 
 cv_sig«l
 (
 cv
@@ -46541,7 +46547,7 @@ cv
 lock
  *lock);
 
-138 
+139 
 cv_brﬂdˇ°
 (
 cv
@@ -63277,7 +63283,7 @@ UW
 
 10 
 	#NTHREADS
- 8
+ 10
 
 	)
 
@@ -63320,7 +63326,231 @@ NULL
 }
 
 28 
-	$loudthªad
+	$mythªads
+(*
+junk
+, 
+num
+)
+
+30 *
+°r
+ = (*)"help";
+
+31 
+i
+;
+
+33 ()
+num
+;
+
+34 ()
+junk
+;
+
+36 
+i
+=0; i<50; i++) {
+
+37 
+	`k¥ötf
+(
+°r
+);
+
+39 
+	`V
+(
+t£m
+);
+
+40 
+	}
+}
+
+47 
+	$ru¡hªads
+()
+
+49 
+«me
+[16];
+
+50 
+i
+, 
+ªsu…
+;
+
+52 
+i
+=0; i<
+NTHREADS
+; i++) {
+
+53 
+	`¢¥ötf
+(
+«me
+, “ame), "thªadã°%d", 
+i
+);
+
+54 
+ªsu…
+ = 
+	`thªad_f‹k
+(
+«me
+, 
+NULL
+,
+
+55 
+mythªads
+,
+
+56 
+NULL
+, 
+i
+);
+
+57 i‡(
+ªsu…
+) {
+
+58 
+	`∑nic
+("threadtest:Åhread_fork failed %s)\n",
+
+59 
+	`°ªº‹
+(
+ªsu…
+));
+
+63 
+i
+=0; i<
+NTHREADS
+; i++) {
+
+64 
+	`P
+(
+t£m
+);
+
+66 
+	}
+}
+
+70 
+	$thªadfun
+(
+«rgs
+, **
+¨gs
+)
+
+72 ()
+«rgs
+;
+
+73 ()
+¨gs
+;
+
+74 
+	`öô_£m
+();
+
+75 
+	`k¥ötf
+("StartingÅhreadÅest...\n");
+
+76 
+	`ru¡hªads
+();
+
+77 
+	`k¥ötf
+("\nThreadÅest done.\n");
+
+80 
+	}
+}
+
+	@kern/test/threadfun1.c
+
+4 
+	~<ty≥s.h
+>
+
+5 
+	~<lib.h
+>
+
+6 
+	~<thªad.h
+>
+
+7 
+	~<synch.h
+>
+
+8 
+	~<ã°.h
+>
+
+10 
+	#NTHREADS
+ 10
+
+	)
+
+12 
+£m≠h‹e
+ *
+	gt£m
+ = 
+NULL
+;
+
+16 
+	$öô_£m
+()
+
+18 i‡(
+t£m
+==
+NULL
+) {
+
+19 
+t£m
+ = 
+	`£m_¸óã
+("tsem", 0);
+
+20 i‡(
+t£m
+ =
+NULL
+) {
+
+21 
+	`∑nic
+("threadtest: sem_create failed\n");
+
+24 
+	}
+}
+
+28 
+	$mythªads
 (*
 junk
 , 
@@ -63361,77 +63591,27 @@ t£m
 	}
 }
 
-53 
-	$quõâhªad
-(*
-junk
-, 
-num
-)
-
-55 
-ch
- = '0' + 
-num
-;
-
-56 vﬁ©ûê
-i
-;
-
-58 ()
-junk
-;
-
-60 
-	`putch
-(
-ch
-);
-
-61 
-i
-=0; i<200000; i++);
-
-62 
-	`putch
-(
-ch
-);
-
-64 
-	`V
-(
-t£m
-);
-
-65 
-	}
-}
-
-69 
+54 
 	$ru¡hªads
-(
-dﬁoud
-)
+()
 
-71 
+56 
 «me
 [16];
 
-72 
+57 
 i
 , 
 ªsu…
 ;
 
-74 
+59 
 i
 =0; i<
 NTHREADS
 ; i++) {
 
-75 
+60 
 	`¢¥ötf
 (
 «me
@@ -63439,7 +63619,7 @@ NTHREADS
 i
 );
 
-76 
+61 
 ªsu…
  = 
 	`thªad_f‹k
@@ -63449,51 +63629,47 @@ i
 NULL
 ,
 
-77 
-dﬁoud
- ? 
-loudthªad
- : 
-quõâhªad
+62 
+mythªads
 ,
 
-78 
+63 
 NULL
 , 
 i
 );
 
-79 i‡(
+64 i‡(
 ªsu…
 ) {
 
-80 
+65 
 	`∑nic
 ("threadtest:Åhread_fork failed %s)\n",
 
-81 
+66 
 	`°ªº‹
 (
 ªsu…
 ));
 
-85 
+70 
 i
 =0; i<
 NTHREADS
 ; i++) {
 
-86 
+71 
 	`P
 (
 t£m
 );
 
-88 
+73 
 	}
 }
 
-92 
+77 
 	$thªadfun
 (
 «rgs
@@ -63501,31 +63677,31 @@ t£m
 ¨gs
 )
 
-94 ()
+79 ()
 «rgs
 ;
 
-95 ()
+80 ()
 ¨gs
 ;
 
-97 
+81 
 	`öô_£m
 ();
 
-98 
+82 
 	`k¥ötf
 ("StartingÅhreadÅest...\n");
 
-99 
+83 
 	`ru¡hªads
-(1);
+();
 
-100 
+84 
 	`k¥ötf
 ("\nThreadÅest done.\n");
 
-103 
+87 
 	}
 }
 
@@ -93556,854 +93732,24 @@ buf
 	@user/my-testbin/consoleWrite/consoleWrite.c
 
 5 
-	~<ty≥s.h
+	~<°dio.h
 >
 
 6 
-	~<lib.h
+	~<°dlib.h
 >
 
-7 
-	~<uni°d.h
->
-
-8 
-	~<ã°.h
->
-
-11 
+9 
 	$maö
 ()
 
-13 
-	`k¥ötf
+11 
+	`¥ötf
 ("Bonjour Monde\n");
 
-15 
+13 
 	}
 }
-
-	@user/my-testbin/consoleWrite/lib.h
-
-30 #i‚de‡
-_LIB_H_
-
-
-31 
-	#_LIB_H_
-
-
-	)
-
-41 
-	~<cdefs.h
->
-
-60 
-	~"›t-nﬂs£πs.h
-"
-
-62 #i‡
-OPT_NOASSERTS
-
-
-63 
-	#KASSERT
-(
-ex¥
-Ë(()”x¥))
-
-	)
-
-65 
-	#KASSERT
-(
-ex¥
-) \
-
-66 ((
-ex¥
-Ë? ()0 : 
-	`badas£π
-(#ex¥, 
-__FILE__
-, 
-__LINE__
-, 
-__func__
-))
-
-	)
-
-70 
-	#DEBUGASSERT
-(
-ex¥
-Ë(()”x¥))
-
-	)
-
-72 
-	#DEBUGASSERT
-(
-ex¥
-) \
-
-73 ((
-ex¥
-Ë? ()0 : 
-	`badas£π
-(#ex¥, 
-__FILE__
-, 
-__LINE__
-, 
-__func__
-))
-
-	)
-
-79 
-	#DB_LOCORE
- 0x0001
-
-	)
-
-80 
-	#DB_SYSCALL
- 0x0002
-
-	)
-
-81 
-	#DB_INTERRUPT
- 0x0004
-
-	)
-
-82 
-	#DB_DEVICE
- 0x0008
-
-	)
-
-83 
-	#DB_THREADS
- 0x0010
-
-	)
-
-84 
-	#DB_VM
- 0x0020
-
-	)
-
-85 
-	#DB_EXEC
- 0x0040
-
-	)
-
-86 
-	#DB_VFS
- 0x0080
-
-	)
-
-87 
-	#DB_SFS
- 0x0100
-
-	)
-
-88 
-	#DB_NET
- 0x0200
-
-	)
-
-89 
-	#DB_NETFS
- 0x0400
-
-	)
-
-90 
-	#DB_KMALLOC
- 0x0800
-
-	)
-
-91 
-	#DB_SYNCPROB
- 0x1000
-
-	)
-
-93 
-uöt32_t
- 
-dbÊags
-;
-
-111 
-	#DEBUG
-(
-d
-, ...Ë((
-dbÊags
- & (d)Ë? 
-	`k¥ötf
-(
-__VA_ARGS__
-Ë: 0)
-
-	)
-
-118 
-	#RANDOM_MAX
- (
-	`øndmax
-())
-
-	)
-
-119 
-uöt32_t
- 
-øndmax
-();
-
-120 
-uöt32_t
- 
-øndom
-();
-
-126 *
-kmÆloc
-(
-size_t
- 
-size
-);
-
-127 
-k‰ì
-(*
-±r
-);
-
-128 
-khóp_¥öt°©s
-();
-
-136 
-size_t
- 
-°æí
-(c⁄° *
-°r
-);
-
-137 
-°rcmp
-(c⁄° *
-°r1
-, c⁄° *
-°r2
-);
-
-138 *
-°r˝y
-(*
-de°
-, c⁄° *
-§c
-);
-
-139 *
-°rˇt
-(*
-de°
-, c⁄° *
-§c
-);
-
-140 *
-k°rdup
-(c⁄° *
-°r
-);
-
-141 *
-°rchr
-(c⁄° *
-£¨ched
-, 
-£¨chf‹
-);
-
-142 *
-°ºchr
-(c⁄° *
-£¨ched
-, 
-£¨chf‹
-);
-
-143 *
-°πok_r
-(*
-buf
-, c⁄° *
-£ps
-, **
-c⁄ãxt
-);
-
-145 *
-mem˝y
-(*
-de°
-, c⁄° *
-§c
-, 
-size_t
- 
-Àn
-);
-
-146 *
-memmove
-(*
-de°
-, c⁄° *
-§c
-, 
-size_t
- 
-Àn
-);
-
-147 
-bzîo
-(*
-±r
-, 
-size_t
- 
-Àn
-);
-
-148 
-©oi
-(c⁄° *
-°r
-);
-
-150 
-	$¢¥ötf
-(*
-buf
-, 
-size_t
- 
-maxÀn
-, c⁄° *
-fmt
-, ...Ë
-	`__PF
-(3,4);
-
-152 c⁄° *
-	`°ªº‹
-(
-îrcode
-);
-
-161 
-	`putch
-(
-ch
-);
-
-162 
-	`putch_¥ï¨e
-();
-
-163 
-	`putch_com∂ëe
-();
-
-164 
-	`gëch
-();
-
-165 
-	`bìp
-();
-
-180 
-	$k¥ötf
-(c⁄° *
-f‹m©
-, ...Ë
-	`__PF
-(1,2);
-
-181 
-	$∑nic
-(c⁄° *
-f‹m©
-, ...Ë
-	`__PF
-(1,2);
-
-182 
-	`badas£π
-(c⁄° *
-ex¥
-, c⁄° *
-fûe
-, 
-löe
-, c⁄° *
-func
-);
-
-184 
-	`kgës
-(*
-buf
-, 
-size_t
- 
-maxbuÊí
-);
-
-186 
-	`k¥ötf_boŸ°øp
-();
-
-192 
-	#DIVROUNDUP
-(
-a
-,
-b
-Ë((◊)+(b)-1)/(b))
-
-	)
-
-193 
-	#ROUNDUP
-(
-a
-,
-b
-Ë(
-	`DIVROUNDUP
-◊,b)*b)
-
-	)
-
-	@user/my-testbin/consoleWrite/test.h
-
-30 #i‚de‡
-_TEST_H_
-
-
-31 
-	#_TEST_H_
-
-
-	)
-
-40 
-whÆem©ög
-(, **);
-
-42 #ifde‡
-UW
-
-
-43 
-ˇtmou£
-(, **);
-
-51 
-¨øyã°
-(, **);
-
-52 
-bôm≠ã°
-(, **);
-
-53 
-queuëe°
-(, **);
-
-56 
-thªadã°
-(, **);
-
-57 
-thªadã°2
-(, **);
-
-58 
-thªadã°3
-(, **);
-
-59 
-thªadfun
-(, **);
-
-60 
-£mã°
-(, **);
-
-61 
-lockã°
-(, **);
-
-62 
-cvã°
-(, **);
-
-64 #ifde‡
-UW
-
-
-66 
-uwlockã°1
-(, **);
-
-68 
-uwvm°©°e°
-(, **);
-
-72 
-f°e°
-(, **);
-
-73 
-ªad°ªss
-(, **);
-
-74 
-wrôe°ªss
-(, **);
-
-75 
-wrôe°ªss2
-(, **);
-
-76 
-¸óã°ªss
-(, **);
-
-77 
-¥ötfûe
-(, **);
-
-80 
-mÆlo˘e°
-(, **);
-
-81 
-mÆloc°ªss
-(, **);
-
-82 
-√âe°
-(, **);
-
-85 
-ru≈rogøm
-(*
-¥og«me
-);
-
-88 
-míu
-(*
-¨g°r
-);
-
-89 
-hñlo
-();
-
-92 
-kmaö
-(*
-boŸ°rög
-);
-
-	@user/my-testbin/consoleWrite/types.h
-
-30 #i‚de‡
-_TYPES_H_
-
-
-31 
-	#_TYPES_H_
-
-
-	)
-
-80 
-	~<kîn/ty≥s.h
->
-
-83 
-	~<machöe/ty≥s.h
->
-
-90 
-	s__u£Ωå
- { 
-	m_dummy
-; };
-
-91 
-__u£Ωå
- *
-	tu£Ωå_t
-;
-
-92 c⁄° 
-	t__u£Ωå
- *
-	tc⁄°_u£Ωå_t
-;
-
-100 
-__i8
- 
-	töt8_t
-;
-
-101 
-__i16
- 
-	töt16_t
-;
-
-102 
-__i32
- 
-	töt32_t
-;
-
-103 
-__i64
- 
-	töt64_t
-;
-
-104 
-__u8
- 
-	tuöt8_t
-;
-
-105 
-__u16
- 
-	tuöt16_t
-;
-
-106 
-__u32
- 
-	tuöt32_t
-;
-
-107 
-__u64
- 
-	tuöt64_t
-;
-
-108 
-__size_t
- 
-	tsize_t
-;
-
-109 
-__ssize_t
- 
-	tssize_t
-;
-
-110 
-__öçå_t
- 
-	töçå_t
-;
-
-111 
-__uöçå_t
- 
-	tuöçå_t
-;
-
-112 
-__±rdiff_t
- 
-	t±rdiff_t
-;
-
-115 
-__blk˙t_t
- 
-	tblk˙t_t
-;
-
-116 
-__blksize_t
- 
-	tblksize_t
-;
-
-117 
-__daddr_t
- 
-	tdaddr_t
-;
-
-118 
-__dev_t
- 
-	tdev_t
-;
-
-119 
-__fsid_t
- 
-	tfsid_t
-;
-
-120 
-__gid_t
- 
-	tgid_t
-;
-
-121 
-__ö_addr_t
- 
-	tö_addr_t
-;
-
-122 
-__ö_p‹t_t
- 
-	tö_p‹t_t
-;
-
-123 
-__öo_t
- 
-	töo_t
-;
-
-124 
-__mode_t
- 
-	tmode_t
-;
-
-125 
-__∆ök_t
- 
-	t∆ök_t
-;
-
-126 
-__off_t
- 
-	toff_t
-;
-
-127 
-__pid_t
- 
-	tpid_t
-;
-
-128 
-__æim_t
- 
-	tæim_t
-;
-
-129 
-__ß_Ámûy_t
- 
-	tß_Ámûy_t
-;
-
-130 
-__time_t
- 
-	ttime_t
-;
-
-131 
-__uid_t
- 
-	tuid_t
-;
-
-133 
-__nfds_t
- 
-	tnfds_t
-;
-
-134 
-__sockÀn_t
- 
-	tsockÀn_t
-;
-
-140 
-	#CHAR_BIT
- 
-__CHAR_BIT
-
-
-	)
-
-146 
-	#NULL
- ((*)0)
-
-	)
-
-151 
-_Boﬁ
- 
-	tboﬁ
-;
-
-152 
-	#åue
- 1
-
-	)
-
-153 
-	#Ál£
- 0
-
-	)
 
 	@user/my-testbin/example/example.c
 
@@ -94425,827 +93771,83 @@ RB_POWEROFF
 	}
 }
 
-	@user/my-testbin/lib.h
+	@user/my-testbin/getpid/getpid.c
 
-30 #i‚de‡
-_LIB_H_
-
-
-31 
-	#_LIB_H_
-
-
-	)
-
-41 
-	~<cdefs.h
+5 
+	~<°dio.h
 >
 
-60 
-	~"›t-nﬂs£πs.h
-"
-
-62 #i‡
-OPT_NOASSERTS
-
-
-63 
-	#KASSERT
-(
-ex¥
-Ë(()”x¥))
-
-	)
-
-65 
-	#KASSERT
-(
-ex¥
-) \
-
-66 ((
-ex¥
-Ë? ()0 : 
-	`badas£π
-(#ex¥, 
-__FILE__
-, 
-__LINE__
-, 
-__func__
-))
-
-	)
-
-70 
-	#DEBUGASSERT
-(
-ex¥
-Ë(()”x¥))
-
-	)
-
-72 
-	#DEBUGASSERT
-(
-ex¥
-) \
-
-73 ((
-ex¥
-Ë? ()0 : 
-	`badas£π
-(#ex¥, 
-__FILE__
-, 
-__LINE__
-, 
-__func__
-))
-
-	)
-
-79 
-	#DB_LOCORE
- 0x0001
-
-	)
-
-80 
-	#DB_SYSCALL
- 0x0002
-
-	)
-
-81 
-	#DB_INTERRUPT
- 0x0004
-
-	)
-
-82 
-	#DB_DEVICE
- 0x0008
-
-	)
-
-83 
-	#DB_THREADS
- 0x0010
-
-	)
-
-84 
-	#DB_VM
- 0x0020
-
-	)
-
-85 
-	#DB_EXEC
- 0x0040
-
-	)
-
-86 
-	#DB_VFS
- 0x0080
-
-	)
-
-87 
-	#DB_SFS
- 0x0100
-
-	)
-
-88 
-	#DB_NET
- 0x0200
-
-	)
-
-89 
-	#DB_NETFS
- 0x0400
-
-	)
-
-90 
-	#DB_KMALLOC
- 0x0800
-
-	)
-
-91 
-	#DB_SYNCPROB
- 0x1000
-
-	)
-
-93 
-uöt32_t
- 
-dbÊags
-;
-
-111 
-	#DEBUG
-(
-d
-, ...Ë((
-dbÊags
- & (d)Ë? 
-	`k¥ötf
-(
-__VA_ARGS__
-Ë: 0)
-
-	)
-
-118 
-	#RANDOM_MAX
- (
-	`øndmax
-())
-
-	)
-
-119 
-uöt32_t
- 
-øndmax
-();
-
-120 
-uöt32_t
- 
-øndom
-();
-
-126 *
-kmÆloc
-(
-size_t
- 
-size
-);
-
-127 
-k‰ì
-(*
-±r
-);
-
-128 
-khóp_¥öt°©s
-();
-
-136 
-size_t
- 
-°æí
-(c⁄° *
-°r
-);
-
-137 
-°rcmp
-(c⁄° *
-°r1
-, c⁄° *
-°r2
-);
-
-138 *
-°r˝y
-(*
-de°
-, c⁄° *
-§c
-);
-
-139 *
-°rˇt
-(*
-de°
-, c⁄° *
-§c
-);
-
-140 *
-k°rdup
-(c⁄° *
-°r
-);
-
-141 *
-°rchr
-(c⁄° *
-£¨ched
-, 
-£¨chf‹
-);
-
-142 *
-°ºchr
-(c⁄° *
-£¨ched
-, 
-£¨chf‹
-);
-
-143 *
-°πok_r
-(*
-buf
-, c⁄° *
-£ps
-, **
-c⁄ãxt
-);
-
-145 *
-mem˝y
-(*
-de°
-, c⁄° *
-§c
-, 
-size_t
- 
-Àn
-);
-
-146 *
-memmove
-(*
-de°
-, c⁄° *
-§c
-, 
-size_t
- 
-Àn
-);
-
-147 
-bzîo
-(*
-±r
-, 
-size_t
- 
-Àn
-);
-
-148 
-©oi
-(c⁄° *
-°r
-);
-
-150 
-	$¢¥ötf
-(*
-buf
-, 
-size_t
- 
-maxÀn
-, c⁄° *
-fmt
-, ...Ë
-	`__PF
-(3,4);
-
-152 c⁄° *
-	`°ªº‹
-(
-îrcode
-);
-
-161 
-	`putch
-(
-ch
-);
-
-162 
-	`putch_¥ï¨e
-();
-
-163 
-	`putch_com∂ëe
-();
-
-164 
-	`gëch
-();
-
-165 
-	`bìp
-();
-
-180 
-	$k¥ötf
-(c⁄° *
-f‹m©
-, ...Ë
-	`__PF
-(1,2);
-
-181 
-	$∑nic
-(c⁄° *
-f‹m©
-, ...Ë
-	`__PF
-(1,2);
-
-182 
-	`badas£π
-(c⁄° *
-ex¥
-, c⁄° *
-fûe
-, 
-löe
-, c⁄° *
-func
-);
-
-184 
-	`kgës
-(*
-buf
-, 
-size_t
- 
-maxbuÊí
-);
-
-186 
-	`k¥ötf_boŸ°øp
-();
-
-192 
-	#DIVROUNDUP
-(
-a
-,
-b
-Ë((◊)+(b)-1)/(b))
-
-	)
-
-193 
-	#ROUNDUP
-(
-a
-,
-b
-Ë(
-	`DIVROUNDUP
-◊,b)*b)
-
-	)
-
-	@user/my-testbin/test.h
-
-30 #i‚de‡
-_TEST_H_
-
-
-31 
-	#_TEST_H_
-
-
-	)
-
-40 
-whÆem©ög
-(, **);
-
-42 #ifde‡
-UW
-
-
-43 
-ˇtmou£
-(, **);
-
-51 
-¨øyã°
-(, **);
-
-52 
-bôm≠ã°
-(, **);
-
-53 
-queuëe°
-(, **);
-
-56 
-thªadã°
-(, **);
-
-57 
-thªadã°2
-(, **);
-
-58 
-thªadã°3
-(, **);
-
-59 
-thªadfun
-(, **);
-
-60 
-£mã°
-(, **);
-
-61 
-lockã°
-(, **);
-
-62 
-cvã°
-(, **);
-
-64 #ifde‡
-UW
-
-
-66 
-uwlockã°1
-(, **);
-
-68 
-uwvm°©°e°
-(, **);
-
-72 
-f°e°
-(, **);
-
-73 
-ªad°ªss
-(, **);
-
-74 
-wrôe°ªss
-(, **);
-
-75 
-wrôe°ªss2
-(, **);
-
-76 
-¸óã°ªss
-(, **);
-
-77 
-¥ötfûe
-(, **);
-
-80 
-mÆlo˘e°
-(, **);
-
-81 
-mÆloc°ªss
-(, **);
-
-82 
-√âe°
-(, **);
-
-85 
-ru≈rogøm
-(*
-¥og«me
-);
-
-88 
-míu
-(*
-¨g°r
-);
-
-89 
-hñlo
-();
-
-92 
-kmaö
-(*
-boŸ°rög
-);
-
-	@user/my-testbin/types.h
-
-30 #i‚de‡
-_TYPES_H_
-
-
-31 
-	#_TYPES_H_
-
-
-	)
-
-80 
-	~<kîn/ty≥s.h
+6 
+	~<sys/ty≥s.h
 >
 
-83 
-	~<machöe/ty≥s.h
+7 
+	~<°dlib.h
 >
 
-90 
-	s__u£Ωå
- { 
-	m_dummy
-; };
+8 
+	~<uni°d.h
+>
 
-91 
-__u£Ωå
- *
-	tu£Ωå_t
-;
+11 
+	$maö
+()
 
-92 c⁄° 
-	t__u£Ωå
- *
-	tc⁄°_u£Ωå_t
-;
+13 
+id
+ = 
+	`gëpid
+();
 
-100 
-__i8
+14 
+	`¥ötf
+("ID o‡thi†¥o˚s†is: %d\n", 
+id
+);
+
+16 
+	}
+}
+
+	@user/my-testbin/timeOfDay/timeOfDay.c
+
+5 
+	~<°dio.h
+>
+
+6 
+	~<sys/ty≥s.h
+>
+
+7 
+	~<°dlib.h
+>
+
+8 
+	~<time.h
+>
+
+11 
+	$maö
+()
+
+13 
+	`¥ötf
+("Time of day is: \n");
+
+14 
+time_t
  
-	töt8_t
-;
+	`__time
+—ime_à*
+£c⁄ds
+, *
+«no£c⁄ds
+);
 
-101 
-__i16
- 
-	töt16_t
-;
-
-102 
-__i32
- 
-	töt32_t
-;
-
-103 
-__i64
- 
-	töt64_t
-;
-
-104 
-__u8
- 
-	tuöt8_t
-;
-
-105 
-__u16
- 
-	tuöt16_t
-;
-
-106 
-__u32
- 
-	tuöt32_t
-;
-
-107 
-__u64
- 
-	tuöt64_t
-;
-
-108 
-__size_t
- 
-	tsize_t
-;
-
-109 
-__ssize_t
- 
-	tssize_t
-;
-
-110 
-__öçå_t
- 
-	töçå_t
-;
-
-111 
-__uöçå_t
- 
-	tuöçå_t
-;
-
-112 
-__±rdiff_t
- 
-	t±rdiff_t
-;
-
-115 
-__blk˙t_t
- 
-	tblk˙t_t
-;
-
-116 
-__blksize_t
- 
-	tblksize_t
-;
-
-117 
-__daddr_t
- 
-	tdaddr_t
-;
-
-118 
-__dev_t
- 
-	tdev_t
-;
-
-119 
-__fsid_t
- 
-	tfsid_t
-;
-
-120 
-__gid_t
- 
-	tgid_t
-;
-
-121 
-__ö_addr_t
- 
-	tö_addr_t
-;
-
-122 
-__ö_p‹t_t
- 
-	tö_p‹t_t
-;
-
-123 
-__öo_t
- 
-	töo_t
-;
-
-124 
-__mode_t
- 
-	tmode_t
-;
-
-125 
-__∆ök_t
- 
-	t∆ök_t
-;
-
-126 
-__off_t
- 
-	toff_t
-;
-
-127 
-__pid_t
- 
-	tpid_t
-;
-
-128 
-__æim_t
- 
-	tæim_t
-;
-
-129 
-__ß_Ámûy_t
- 
-	tß_Ámûy_t
-;
-
-130 
-__time_t
- 
-	ttime_t
-;
-
-131 
-__uid_t
- 
-	tuid_t
-;
-
-133 
-__nfds_t
- 
-	tnfds_t
-;
-
-134 
-__sockÀn_t
- 
-	tsockÀn_t
-;
-
-140 
-	#CHAR_BIT
- 
-__CHAR_BIT
-
-
-	)
-
-146 
-	#NULL
- ((*)0)
-
-	)
-
-151 
-_Boﬁ
- 
-	tboﬁ
-;
-
-152 
-	#åue
- 1
-
-	)
-
-153 
-	#Ál£
- 0
-
-	)
+16 
+	}
+}
 
 	@user/sbin/dumpsfs/dumpsfs.c
 
@@ -139597,8 +138199,8 @@ i
 1
 .
 0
-524
-14763
+521
+14679
 build/install/hostinclude/hostcompat.h
 build/install/include/assert.h
 build/install/include/err.h
@@ -139864,6 +138466,7 @@ kern/test/malloctest.c
 kern/test/nettest.c
 kern/test/synchtest.c
 kern/test/threadfun.c
+kern/test/threadfun1.c
 kern/test/threadtest.c
 kern/test/tt3.c
 kern/test/uw-tests.c
@@ -139991,13 +138594,9 @@ user/lib/libc/unix/err.c
 user/lib/libc/unix/errno.c
 user/lib/libc/unix/getcwd.c
 user/my-testbin/consoleWrite/consoleWrite.c
-user/my-testbin/consoleWrite/lib.h
-user/my-testbin/consoleWrite/test.h
-user/my-testbin/consoleWrite/types.h
 user/my-testbin/example/example.c
-user/my-testbin/lib.h
-user/my-testbin/test.h
-user/my-testbin/types.h
+user/my-testbin/getpid/getpid.c
+user/my-testbin/timeOfDay/timeOfDay.c
 user/sbin/dumpsfs/dumpsfs.c
 user/sbin/halt/halt.c
 user/sbin/mksfs/disk.c

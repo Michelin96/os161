@@ -1,0 +1,16 @@
+/*
+ * Print the time of day
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int
+main()
+{
+		time_t __time(time_t *seconds, unsigned long *nanoseconds);
+
+	printf("Time of day is: %ul", time_t);
+	return 0; /* avoid compiler warnings */
+}
