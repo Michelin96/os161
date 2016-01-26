@@ -10,10 +10,10 @@
 #define NTHREADS 10
 
 static struct semaphore *tsem = NULL;
- 
+static struct lock* testlock; 
 static
 void
-init_sem(void)
+init_items(void)
 {
         if (tsem==NULL) {
                 tsem = sem_create("tsem", 0);
@@ -21,6 +21,14 @@ init_sem(void)
                         panic("threadtest: sem_create failed\n");
                 }
         }
+	
+	if (testlock==NULL) {
+		testlock = lock_create("testlock");
+		if (testlock == NULL) {
+			panic("synchtest: lock_create failed\n");
+		}
+	}
+
 }
 
 static
@@ -32,9 +40,12 @@ mythreads(void *junk, unsigned long num)
 
 	(void)num;
         (void)junk;
-
         for (i=0; i<50; i++) {
+	lock_acquire(testlock);
+
                 kprintf(str);
+	lock_release(testlock);
+
         }
         V(tsem);
 }
@@ -71,7 +82,7 @@ threadfun(int nargs, char **args)
 {
         (void)nargs;
         (void)args;
-        init_sem();
+        init_items();
         kprintf("Starting thread test...\n");
         runthreads();
         kprintf("\nThread test done.\n");
