@@ -1,4 +1,4 @@
-cscope 15 $HOME/os161               0000693967
+cscope 15 $HOME/os161               0000695024
 	@build/install/hostinclude/hostcompat.h
 
 31 
@@ -19939,7 +19939,7 @@ _OPT_SYNCHPROBS_H_
 
 2 cÚ¡ 
 	gbuždv”siÚ
- = 3;
+ = 5;
 
 3 cÚ¡ 
 	gbuždcÚfig
@@ -46469,13 +46469,29 @@ V
 	mlk_Çme
 ;
 
-79 
+78 
 wchª
  *
-	mlk_wchª
+	mlock_wchª
 ;
 
-82 
+79 
+¥šlock
+ 
+	m¥l_lock
+;
+
+80 
+th»ad
+ * 
+	mlock_hÞd”
+;
+
+81 vÞ©ž
+	mlock_couÁ
+;
+
+86 
 lock
  *
 lock_ü—‹
@@ -46483,19 +46499,19 @@ lock_ü—‹
 Çme
 );
 
-83 
+87 
 lock_acquœe
 (
 lock
  *);
 
-96 
+100 
 lock_»Ëa£
 (
 lock
  *);
 
-97 
+101 
 boÞ
  
 lock_do_i_hÞd
@@ -46503,21 +46519,21 @@ lock_do_i_hÞd
 lock
  *);
 
-98 
+102 
 lock_de¡roy
 (
 lock
  *);
 
-115 
+119 
 	scv
  {
 
-116 *
+120 *
 	mcv_Çme
 ;
 
-121 
+125 
 cv
  *
 cv_ü—‹
@@ -46525,13 +46541,13 @@ cv_ü—‹
 Çme
 );
 
-122 
+126 
 cv_de¡roy
 (
 cv
  *);
 
-137 
+141 
 cv_wa™
 (
 cv
@@ -46539,7 +46555,7 @@ cv
 lock
  *lock);
 
-138 
+142 
 cv_sigÇl
 (
 cv
@@ -46547,7 +46563,7 @@ cv
 lock
  *lock);
 
-139 
+143 
 cv_brßdÿ¡
 (
 cv
@@ -66769,21 +66785,73 @@ lock
 NULL
 ;
 
-168  
+167 
+lock
+->
+lock_wchª
+ = 
+	`wchª_ü—‹
+Öock->
+lk_Çme
+);
+
+168 ià(
+lock
+->
+lock_wchª
+ =ð
+NULL
+) {
+
+169 
+	`kä“
+(
+lock
+->
+lock_Çme
+);
+
+170 
+	`kä“
+(
+lock
+);
+
+171  
+NULL
+;
+
+174 
+	`¥šlock_š™
+(&
+lock
+->
+¥l_lock
+);
+
+175 
+lock
+->
+lock_hÞd”
+ = 
+NULL
+;
+
+177  
 lock
 ;
 
-169 
+178 
 	}
 }
 
-172 
+181 
 	$lock_de¡roy
 (
 lock
  *lock)
 
-174 
+183 
 	`KASSERT
 (
 lock
@@ -66791,7 +66859,23 @@ lock
 NULL
 );
 
-178 
+187 
+	`¥šlock_þ—nup
+(&
+lock
+->
+¥l_lock
+);
+
+188 
+	`wchª_de¡roy
+(
+lock
+->
+lock_wchª
+);
+
+189 
 	`kä“
 (
 lock
@@ -66799,97 +66883,221 @@ lock
 lk_Çme
 );
 
-179 
+190 
 	`kä“
 (
 lock
 );
 
-180 
+191 
 	}
 }
 
-183 
+194 
 	$lock_acquœe
 (
 lock
  *lock)
 
-187 ()
+197 
+	`KASSERT
+(
 lock
-;
+ !ð
+NULL
+);
 
-188 
+205 
+	`KASSERT
+(
+cu¹h»ad
+->
+t_š_š‹¼u±
+ =ð
+çl£
+);
+
+208 
+	`¥šlock_acquœe
+(&
+lock
+->
+¥l_lock
+);
+
+209 
+lock
+->
+lock_hÞd”
+ !ð
+NULL
+) {
+
+210 
+	`wchª_lock
+(
+lock
+->
+lock_wchª
+);
+
+211 
+	`¥šlock_»Ëa£
+(&
+lock
+->
+¥l_lock
+);
+
+212 
+	`wchª_¦“p
+(
+lock
+->
+lock_wchª
+);
+
+214 
+	`¥šlock_acquœe
+(&
+lock
+->
+¥l_lock
+);
+
+216 
+	`KASSERT
+(
+lock
+->
+lock_hÞd”
+ =ð
+NULL
+);
+
+217 
+lock
+->
+lock_hÞd”
+ = 
+cu¹h»ad
+;;
+
+218 
+	`¥šlock_»Ëa£
+(&
+lock
+->
+¥l_lock
+);
+
+221 
 	}
 }
 
-191 
+224 
 	$lock_»Ëa£
 (
 lock
  *lock)
 
-195 ()
+227 
+	`KASSERT
+(
 lock
+ !ð
+NULL
+);
+
+229 
+	`¥šlock_acquœe
+(&
+lock
+->
+¥l_lock
+);
+
+230 
+lock
+->
+lock_hÞd”
+ = 
+NULL
 ;
 
-196 
+231 
+	`wchª_wakeÚe
+(
+lock
+->
+lock_wchª
+);
+
+233 
+	`¥šlock_»Ëa£
+(&
+lock
+->
+¥l_lock
+);
+
+235 
 	}
 }
 
-198 
+237 
 boÞ
 
 
-199 
+238 
 	$lock_do_i_hÞd
 (
 lock
  *lock)
 
-203 ()
+241  (
 lock
-;
+->
+lock_hÞd”
+ =ð
+cu¹h»ad
+);
 
-205  
-Œue
-;
-
-206 
+243 
 	}
 }
 
-213 
+250 
 cv
  *
 
-214 
+251 
 	$cv_ü—‹
 (cÚ¡ *
 Çme
 )
 
-216 
+253 
 cv
  *cv;
 
-218 
+255 
 cv
  = 
 	`km®loc
 ((cv));
 
-219 ià(
+256 ià(
 cv
  =ð
 NULL
 ) {
 
-220  
+257  
 NULL
 ;
 
-223 
+260 
 cv
 ->
 cv_Çme
@@ -66899,7 +67107,7 @@ cv_Çme
 Çme
 );
 
-224 ià(
+261 ià(
 cv
 ->
 cv_Çme
@@ -66907,31 +67115,31 @@ cv_Çme
 NULL
 ) {
 
-225 
+262 
 	`kä“
 (
 cv
 );
 
-226  
+263  
 NULL
 ;
 
-231  
+268  
 cv
 ;
 
-232 
+269 
 	}
 }
 
-235 
+272 
 	$cv_de¡roy
 (
 cv
  *cv)
 
-237 
+274 
 	`KASSERT
 (
 cv
@@ -66939,7 +67147,7 @@ cv
 NULL
 );
 
-241 
+278 
 	`kä“
 (
 cv
@@ -66947,17 +67155,17 @@ cv
 cv_Çme
 );
 
-242 
+279 
 	`kä“
 (
 cv
 );
 
-243 
+280 
 	}
 }
 
-246 
+283 
 	$cv_wa™
 (
 cv
@@ -66965,19 +67173,19 @@ cv
 lock
  *lock)
 
-249 ()
+286 ()
 cv
 ;
 
-250 ()
+287 ()
 lock
 ;
 
-251 
+288 
 	}
 }
 
-254 
+291 
 	$cv_sigÇl
 (
 cv
@@ -66985,19 +67193,19 @@ cv
 lock
  *lock)
 
-257 ()
+294 ()
 cv
 ;
 
-258 ()
+295 ()
 lock
 ;
 
-259 
+296 
 	}
 }
 
-262 
+299 
 	$cv_brßdÿ¡
 (
 cv
@@ -67005,15 +67213,15 @@ cv
 lock
  *lock)
 
-265 ()
+302 ()
 cv
 ;
 
-266 ()
+303 ()
 lock
 ;
 
-267 
+304 
 	}
 }
 

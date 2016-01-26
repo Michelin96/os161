@@ -164,7 +164,16 @@ lock_create(const char *name)
         }
         
         // add stuff here as needed
-        
+        lock->lock_wchan = wchan_create(lock->lk_name);
+	if (lock->lock_wchan == NULL) {
+		kfree(lock->lk_name);
+		kfree(lock);
+		return NULL;
+	}
+
+	spinlock_init(&lock->spl_lock);
+        lock->lock_holder = NULL;
+
         return lock;
 }
 
@@ -174,7 +183,9 @@ lock_destroy(struct lock *lock)
         KASSERT(lock != NULL);
 
         // add stuff here as needed
-        
+        /* wchan_cleanup will assert if anyone's waiting on it */
+	spinlock_cleanup(&lock->spl_lock);
+	wchan_destroy(lock->lock_wchan);
         kfree(lock->lk_name);
         kfree(lock);
 }
@@ -183,26 +194,52 @@ void
 lock_acquire(struct lock *lock)
 {
         // Write this
+	KASSERT(lock != NULL);
 
-        (void)lock;  // suppress warning until code gets written
+        /*
+         * May not block in an interrupt handler.
+         *
+         * For robustness, always check, even if we can actually
+         * complete the P without blocking.
+         */
+        KASSERT(curthread->t_in_interrupt == false);
+	
+
+	spinlock_acquire(&lock->spl_lock);
+        while(lock->lock_holder != NULL) {
+		wchan_lock(lock->lock_wchan);
+		spinlock_release(&lock->spl_lock);
+                wchan_sleep(lock->lock_wchan);
+
+		spinlock_acquire(&lock->spl_lock);
+        }
+	KASSERT(lock->lock_holder == NULL);
+	lock->lock_holder = curthread;;
+	spinlock_release(&lock->spl_lock);
+
+        //(void)lock;  // suppress warning until code gets written
 }
 
 void
 lock_release(struct lock *lock)
 {
         // Write this
+	KASSERT(lock != NULL);
 
-        (void)lock;  // suppress warning until code gets written
+	spinlock_acquire(&lock->spl_lock);
+	lock->lock_holder = NULL;
+	wchan_wakeone(lock->lock_wchan);
+
+	spinlock_release(&lock->spl_lock);
+        //(void)lock;  // suppress warning until code gets written
 }
 
 bool
 lock_do_i_hold(struct lock *lock)
 {
         // Write this
-
-        (void)lock;  // suppress warning until code gets written
-
-        return true; // dummy until code gets written
+	return (lock->lock_holder == curthread);
+        //(void)lock;  // suppress warning until code gets written
 }
 
 ////////////////////////////////////////////////////////////
