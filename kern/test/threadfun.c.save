@@ -80,14 +80,7 @@ int
 threadfun(int nargs, char **args)
 {
         (void)nargs; // KASSERT(nargs >= 1);
-	//nunthreads = (int)*args[1] -'0';
-        char *num = (char*)args[1];
-	numthreads = 0;
-	for(unsigned int i =0; i< strlen(num); i++) {
-    		numthreads = 10 * numthreads + num[i] - '0';
-		}
-
-
+        numthreads = args[1];
         init_items();
         kprintf("Starting thread test...\n");
         runthreads();
