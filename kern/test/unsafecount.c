@@ -10,6 +10,7 @@
 int numthreads;
 unsigned long sharedcounter = 0;
 unsigned long truecount;
+unsigned long maxcount;
 
 static struct semaphore *tsem = NULL;
 static struct lock* testlock; 
@@ -46,7 +47,7 @@ mythreads(void *junk, unsigned long num)
 	lock_acquire(testlock);
                 kprintf(str);
 	lock_release(testlock);
-	for(unsigned long i=0; i<20000; i++){
+	for(unsigned long i=0; i<maxcount; i++){
 	 sharedcounter++;
 	}
 	V(tsem);
@@ -78,7 +79,7 @@ runthreads()
         for (i=0; i<numthreads; i++) {
                 P(tsem);
         }
-	truecount = 20000 * numthreads;
+	truecount = maxcount * numthreads;
 
 }
 
@@ -88,6 +89,18 @@ unsafecount(int nargs, char **args)
 {
         (void)nargs; 
 	char *num = (char*)args[1];
+	char *count = (char*)args[2];
+	sharedcounter = 0;
+
+	if (count == NULL){
+		maxcount = 20000;
+	}else{
+	maxcount = 0;
+		for(unsigned int j=0; j<strlen(count); j++) {
+		maxcount = 10 * maxcount + count[j] - '0';
+		}
+	}
+
 
 	// making the user input an integer	
 	numthreads = 0;
@@ -96,11 +109,12 @@ unsafecount(int nargs, char **args)
 	}	
 
 	//check there is at least one thread
-	if (numthreads == 0){
-	   	   kprintf("Number of threads must be 1-49. Try again.\n Usage ctr1 threads\n");
+	if (numthreads == 0 || num == NULL){
+	   	   kprintf("Number of threads must be 1-49. Try again.\n Usage ctr1 threads counter\n");
 	   	   return 0;
 	}
 
+	kprintf("Counter set to: %lu\n", maxcount);
         init_items();
         kprintf("Starting the unsafe thread counter...\n");
         runthreads();
