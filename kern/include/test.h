@@ -61,7 +61,7 @@ int semtest(int, char **);
 int locktest(int, char **);
 int unsafecount(int, char **);
 int lockcount(int, char **);
-//int spinlockcount(int, char **);
+int spinlockcount(int, char **);
 int cvtest(int, char **);
 
 #ifdef UW
