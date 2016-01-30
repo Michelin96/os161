@@ -467,7 +467,7 @@ static const char *testmenu[] = {
 	"[sy2] Lock test             (1)     ",
 	"[sy3] CV test               (1)     ",
 	"[ctr1] Unsafe Thread Counter	     ",
-	//"[ctr2] Lock Thread Counter	     ",
+	"[ctr2] Lock Thread Counter	     ",
 	//"[ctr3] Spinlock Thread  Counter     ",	
 #ifdef UW
 	"[uw1] UW lock test          (1)     ",
@@ -582,7 +582,7 @@ static struct {
 	{ "sy2",	locktest },
 	{ "sy3",	cvtest },
 	{ "ctr1",	unsafecount },
-	//{ "ctr2",	lockcount },
+	{ "ctr2",	lockcount },
 	//{ "ctr3",	spinlockcount },
 #ifdef UW
 	{ "uw1",	uwlocktest1 },

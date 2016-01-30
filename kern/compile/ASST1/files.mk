@@ -95,6 +95,7 @@ SRCS+=$(KTOP)/syscall/time_syscalls.c
 SRCS+=$(KTOP)/test/arraytest.c
 SRCS+=$(KTOP)/test/bitmaptest.c
 SRCS+=$(KTOP)/test/fstest.c
+SRCS+=$(KTOP)/test/lockcount.c
 SRCS+=$(KTOP)/test/malloctest.c
 SRCS+=$(KTOP)/test/synchtest.c
 SRCS+=$(KTOP)/test/threadfun.c

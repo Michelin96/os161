@@ -8,7 +8,7 @@
 #include <test.h>
 
 int numthreads;
-unsigned long sharedcounter = 0;
+unsigned long sharedcounter;
 unsigned long truecount;
 unsigned long maxcount;
 
@@ -48,7 +48,9 @@ mythreads(void *junk, unsigned long num)
                 kprintf(str);
 	lock_release(testlock);
 	for(unsigned long i=0; i<maxcount; i++){
-	 sharedcounter++;
+		lock_acquire(testlock); 
+			sharedcounter++;
+		lock_release(testlock);
 	}
 	V(tsem);
 }
@@ -85,7 +87,7 @@ runthreads()
 
 
 int
-unsafecount(int nargs, char **args)
+lockcount(int nargs, char **args)
 {
         (void)nargs; 
 	char *num = (char*)args[1];
@@ -110,21 +112,19 @@ unsafecount(int nargs, char **args)
 
 	//check there is at least one thread
 	if (numthreads == 0 || num == NULL){
-	   	   kprintf("Number of threads must be 1-49. Try again.\n Usage ctr1 threads counter\n");
+	   	   kprintf("Number of threads must be 1-49. Try again.\n Usage ctr2 threads counter\n");
 	   	   return 0;
 	}
 
 	kprintf("Counter set to: %lu\n", maxcount);
         init_items();
-        kprintf("Starting the unsafe thread counter...\n");
+        kprintf("Starting the thread counter using locks...\n");
         runthreads();
         kprintf("\nProcess is done.\n");
 	kprintf("The shared count is at: %lu\n", sharedcounter); 
 	kprintf("The real count should be: %lu\n", truecount); 
 	if(sharedcounter == truecount)
-                kprintf("The counter is not corrupted.\n");
-	else
-		kprintf("The counter is corrupted.\n");
+		kprintf("The counter is not corrupted.\n");
 
         return 0;
 }
