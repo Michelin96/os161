@@ -1,6 +1,6 @@
 
-$(MYBUILDDIR)/getpid.o: \
- getpid.c \
+$(MYBUILDDIR)/stubtest.o: \
+ stubtest.c \
  $(INSTALLTOP)/include/unistd.h \
  $(INSTALLTOP)/include/sys/types.h \
  $(INSTALLTOP)/include/kern/types.h \

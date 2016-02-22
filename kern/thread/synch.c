@@ -214,7 +214,7 @@ lock_acquire(struct lock *lock)
 		spinlock_acquire(&lock->spl_lock);
         }
 	KASSERT(lock->lock_holder == NULL);
-	lock->lock_holder = curthread;;
+	lock->lock_holder = curthread;
 	spinlock_release(&lock->spl_lock);
 
         //(void)lock;  // suppress warning until code gets written

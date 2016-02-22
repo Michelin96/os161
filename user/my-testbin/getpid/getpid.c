@@ -2,10 +2,11 @@
  * Print out the process ID
  */
 
-#include <stdio.h>
-#include <sys/types.h>
-#include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <err.h>
 
 int
 main()
