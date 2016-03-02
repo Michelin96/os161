@@ -68,7 +68,12 @@ struct proc {
   struct vnode *console;                /* a vnode for the console device */
 #endif
 
-	/* add more material here as needed */
+  /* add more material here as needed */
+	//child process
+	pid_t p_pid;
+  //parent process
+   pid_t pp_pid;
+	struct proc *p_pproc;
 };
 
 /* This is the process structure for the kernel and for kernel-only threads. */
@@ -84,6 +89,9 @@ void proc_bootstrap(void);
 
 /* Create a fresh process for use by runprogram(). */
 struct proc *proc_create_runprogram(const char *name);
+
+/* Create a fresh process for use by fork(). */
+struct proc *proc_create_fork(const char *name);
 
 /* Destroy a process. */
 void proc_destroy(struct proc *proc);
