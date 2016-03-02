@@ -274,66 +274,15 @@ proc_create_runprogram(const char *name)
 	return proc;
 }
 /*Forking a process into a parent and child
-*/
 
 struct proc *
 proc_create_fork(const char *name)
 {
-	   struct proc *child_proc;
-		char *console_path;
-
-			   child_proc = proc_create(name);
-				   if (child_proc == NULL) {
-						      return NULL;
-								   }
-	child_proc = as_copy(curproc_getas(), &child_proc->p_addrspace);
-
-#ifdef UW
- /* open the console - this should always succeed */
-			 console_path = kstrdup("con:");
-			 if (console_path == NULL) {
-					 panic("unable to copy console path name during process creation\n");
-						     }
-			 if (vfs_open(console_path,O_WRONLY,0,&(proc->console))) {
-					 panic("unable to open the console during process creation\n");
-						     }
-		   kfree(console_path);
-#endif // UW
-
-	 /* VM fields */
-
-			 proc->p_addrspace = NULL;
-
-   /* VFS fields */
-
-#ifdef UW
- /* we do not need to acquire the p_lock here, the running thread should
-  *            have the only reference to this process */
- /* also, acquiring the p_lock is problematic because VOP_INCREF may block */
-   if (curproc->p_cwd != NULL) {
-		  VOP_INCREF(curproc->p_cwd);
-		  proc->p_cwd = curproc->p_cwd;
-			   }
-#else // UW
-	  spinlock_acquire(&curproc->p_lock);
-	  if (curproc->p_cwd != NULL) {
-		  VOP_INCREF(curproc->p_cwd);
-		  proc->p_cwd = curproc->p_cwd;
-				   }
- spinlock_release(&curproc->p_lock);
-#endif // UW
-
-#ifdef UW
-    /* increment the count of processes */
-         /* we are assuming that all procs, including those created by fork(),
-			 *            are created using a call to proc_create_runprogram  */
-    P(proc_count_mutex);
-	    proc_count++;
-		    V(proc_count_mutex);
-#endif // UW
-
-			    return proc;
+	(void)name;
+	return proc;
 }
+*/
+
 
 /*
  * Add a thread to a process. Either the thread or the process might

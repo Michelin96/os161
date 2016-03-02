@@ -61,7 +61,7 @@ sys_fork(struct trapframe *tf, pid_t *retval)
 	* Parent returns with child's pid immediatelyi
 	* Child returns 0
    */
-  int err, child_as;
+  int err;
   struct trapframe * temp_tf;
   DEBUG(DB_SYSCALL, "Syscall: sys_fork()\n");
   
@@ -69,7 +69,7 @@ sys_fork(struct trapframe *tf, pid_t *retval)
   temp_tf = kmalloc(sizeof(struct trapframe));
   *temp_tf =  *tf;
   //Make a copy of parent address space
-  child_as = as_copy(curproc_getas(), &child_proc->p_addrspace);	 
+  //child_as = as_copy(curproc_getas(), &child_proc->p_addrspace);	 
   
   err = thread_fork("User Process Thread", NULL, uproc_thread, temp_tf, 0);
   if  (err) {
@@ -84,10 +84,9 @@ sys_fork(struct trapframe *tf, pid_t *retval)
 
 void uproc_thread(void *temp_tf, unsigned long k)
 {
-	(void)k; //is this the process id? where does the child return it??
-	struct trapframe temp_tr = *temp_tf;
+	(void)k; 
+	(void)temp_tf;
 	kprintf("Child - I made it to the child user uproc_thread!\n");
-	//return k;
 	proc_remthread(curthread);
 	thread_exit();
 }
