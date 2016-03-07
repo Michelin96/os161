@@ -75,6 +75,8 @@ sys_fork(struct trapframe *tf, pid_t *retval)
   if  (err) {
         return err;
         }
+ for (int i=0; i<1000000; i++)
+ {}
   kprintf("Parent returning after thread fork\n");
   *retval = 1;
   return(0);

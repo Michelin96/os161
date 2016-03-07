@@ -1,4 +1,4 @@
-cscope 15 $HOME/os161               0000713124
+cscope 15 $HOME/os161               0000713112
 	@build/install/hostinclude/hostcompat.h
 
 31 
@@ -21969,7 +21969,7 @@ _OPT_SYNCHPROBS_H_
 
 2 cÚ¡ 
 	gbuždv”siÚ
- = 11;
+ = 13;
 
 3 cÚ¡ 
 	gbuždcÚfig
@@ -52899,9 +52899,7 @@ pos
 ušt32_t
  
 	gdbæags
- = 
-DB_SYSCALL
-;
+ = 0;
 
 46 
 lock
@@ -60743,7 +60741,7 @@ k
 k
 ;
 
-88 ()*
+88 ()
 ‹mp_tf
 ;
 
