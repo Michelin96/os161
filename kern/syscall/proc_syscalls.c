@@ -77,9 +77,7 @@ sys_fork(struct trapframe *tf, pid_t *retval)
   if  (err) {
         return err;
         }
- //for (int i=0; i<1000000; i++)
- //{}
- // kprintf("Parent returning after thread fork\n");
+
   *retval = child_proc->p_pid;
   return(0);
 }
