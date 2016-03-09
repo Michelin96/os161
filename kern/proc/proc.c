@@ -96,6 +96,9 @@ proc_create(const char *name)
 	/* VM fields */
 	proc->p_addrspace = NULL;
 
+	//initalize pid of all proc
+	proc->p_pid = 2;
+
 	/* VFS fields */
 	proc->p_cwd = NULL;
 

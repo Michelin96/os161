@@ -13,7 +13,7 @@
 
   /* this implementation of sys__exit does not do anything with the exit code */
   /* this needs to be fixed to get exit() and waitpid() working properly */
-void uproc_thread(void *temp_tr, unsigned long k);
+void proc_entry(void *temp_tr, unsigned long k);
 
 void sys__exit(int exitcode) {
 
@@ -55,40 +55,52 @@ int
 sys_fork(struct trapframe *tf, pid_t *retval)
 {
   /* Copy parent's trap frame, and pass it to child thread DONE
-	* Copy parent's address space ?where is it??
+	* Copy parent's address space DONE
 	* Create child thread (using thread_fork) DONE
-	* Copy parent's file table into child
 	* Parent returns with child's pid immediatelyi
 	* Child returns 0
    */
   int err;
   struct trapframe * temp_tf;
   DEBUG(DB_SYSCALL, "Syscall: sys_fork()\n");
-  
+ 
+  struct proc *p = curproc; 
+  struct proc *child_proc = proc_create_runprogram(p->p_name);
+
   //Make a copy of parent trapframe
   temp_tf = kmalloc(sizeof(struct trapframe));
   *temp_tf =  *tf;
   //Make a copy of parent address space
-  //child_as = as_copy(curproc_getas(), &child_proc->p_addrspace);	 
+  as_copy(curproc_getas(), &child_proc->p_addrspace);	 
   
-  err = thread_fork("User Process Thread", NULL, uproc_thread, temp_tf, 0);
+  err = thread_fork("User Process Entry", child_proc, proc_entry, temp_tf, 0);
   if  (err) {
         return err;
         }
- for (int i=0; i<1000000; i++)
- {}
-  kprintf("Parent returning after thread fork\n");
-  *retval = 1;
+ //for (int i=0; i<1000000; i++)
+ //{}
+ // kprintf("Parent returning after thread fork\n");
+  *retval = child_proc->p_pid;
   return(0);
 }
 
 //Creates a user process thread. It's only used by sys_fork()
 
-void uproc_thread(void *temp_tf, unsigned long k)
+void proc_entry(void *temp_tf, unsigned long k)
 {
 	(void)k; 
-	(void)temp_tf;
-	kprintf("Child - I made it to the child user uproc_thread!\n");
+	struct trapframe *old_tf = temp_tf;
+	struct trapframe new_tf = *old_tf;
+
+	new_tf.tf_v0 = 0;
+	new_tf.tf_a3 = 0;
+	new_tf.tf_epc += 4;
+
+	kfree(old_tf);
+
+	mips_usermode(&new_tf);
+
+	//kprintf("Child - I made it to the child user uproc_thread!\n");
 	proc_remthread(curthread);
 	thread_exit();
 }
